@@ -10,6 +10,18 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+
+  private textoParaCopiar: string = '00020101021126330014br.gov.bcb.pix0111539706258825204000053039865802BR5917ANA L DA S AMORIM6009SAO PAULO62070503***6304BE2A';
+
+  copiarTexto(): void {
+    navigator.clipboard.writeText(this.textoParaCopiar).then(() => {
+      alert('Código copiado para a área de transferência!');
+    }).catch(err => {
+      console.error('Erro ao copiar o código: ', err);
+      alert('Erro ao copiar o código.');
+    });
+  }
+
   title = 'DebutanteNiver';
 
   activeTab: string = 'todasPostagens'; // Aba inicial
